@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QSI Fanpage Planner</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    /* Layout styling for Export View */
+    .a4-landscape {
+      width: 297mm;
+      height: 210mm;
+      padding: 10mm;
+      background: white;
+      margin: 0 auto 2rem auto;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .a4-portrait {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 15mm;
+      background: white;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      body {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .a4-landscape {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 10mm;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .a4-portrait {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 15mm;
+        box-shadow: none;
+        page-break-before: always;
+      }
+      /* Force high resolution images in print */
+      img {
+        print-color-adjust: exact;
+      }
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 6px;
+      height: 100%;
+    }
+
+    .day-card-poster {
+      border: 1px solid #e2e8f0;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
